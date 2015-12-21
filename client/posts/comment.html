@@ -1,0 +1,18 @@
+<template name="comment">
+    <div class="media media-custom">
+        <a href="#" class="pull-left">
+            <img alt="" src={{imgUrlGravatar}} class="media-object" height="60px">
+        </a>
+
+        <div class="media-body">
+            <h5 class="media-heading"><strong>{{userName}} </strong>
+                <span> / {{dateCreation}}</span>
+            </h5>
+
+            <p>
+                {{commentText}}
+            </p>
+            <hr>
+        </div>
+    </div>
+</template>

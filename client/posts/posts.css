@@ -1,0 +1,44 @@
+.list-group li {
+    list-style: none;
+    position: relative;
+}
+.panel-info, .panel-rating, .panel-more1 {
+    float: left;
+    margin: 0 10px;
+}
+
+.postRightNav {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.editButton, .removeButton{
+    margin-right: 10px;
+    margin-top: inherit;
+}
+
+#addNewPost{
+    margin-bottom: 5px;
+}
+
+#showMoreButton {
+    margin-bottom: 10px;
+}
+
+.center-block {
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+}
+
+.media-custom {
+    margin-left: 50px;
+}
+
+.list-inline-custom {
+    margin-left: 10px;
+}

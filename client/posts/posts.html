@@ -1,0 +1,97 @@
+<template name="posts">
+    <div class="container">
+        {{#if currentUser}}
+            <button type="button" class="btn btn-primary" id="addNewPost"><i class="fa fa-plus"></i> Add New</button>
+        {{/if}}
+        <ul class="list-group">
+            {{#each posts}}
+                {{> post}}
+            {{/each}}
+        </ul>
+        <button type="button" class="btn btn-info center-block" id="showMoreButton">Show more</button>
+    </div>
+</template>
+
+<template name="post">
+    <li>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="panel-more1">
+                    <img src="http://lorempixel.com/100/100?random={{_id}}"/>
+                </div>
+                <div>
+                    <p><strong>{{title}}</strong></p>
+                    <div id={{_id}}  class="editable" data-type="textarea" data-placeholder="Enter text"
+                         data-emptytext="Click to enter text">
+                        {{postText}}
+                    </div>
+
+                </div>
+
+            </div>
+            {{#if isOwner}}
+                <div class="postRightNav">
+                    <a href="#" class="editButton"><i class="fa fa-pencil fa-fw"></i>Edit</a>
+                    <a href="#" class="removeButton"><i class="fa fa-trash"></i> Del</a>
+                    <div class="selectContainer">
+                        <select postId = {{_id}} class="form-control btn-info" >
+                        <option style="display: none" selected value="">status...</option>
+                        <option value="public">public</option>
+                        <option value="private">private</option>
+                        </select>
+                    </div>
+
+                </div>
+            {{/if}}
+            <ul class="list-inline list-inline-custom">
+                <li>
+                    <i class="fa fa-user"></i>
+                    <span>
+                        {{userName}} </span>
+                </li>
+                <li>
+                    <a href="#" class="fa fa-thumbs-up votesButton"></a>
+                    <span>
+                        {{qtyVotes}} Votes </span>
+                </li>
+                <li>
+                    <i class="fa fa-comments"></i>
+                    <a href="#" class="commentsButton">
+                        {{qtyComments}} Comments </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    {{#if showComments}}
+        {{#each comments}}
+            {{> comment}}
+        {{/each}}
+        <div class="form-group media-custom">
+            <label>Leave your comment to this post</label>
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="enter your comment">
+                <span class="input-group-btn">
+                    <button type="button" class="btn submitComment">submit
+                        <i class="fa fa-paper-plane-o"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    {{/if}}
+</template>
+
+
+<template name="AddPost">
+    <div class="row">
+        <label for="inputTitle" class="col-md-2">Title</label>
+
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="inputTitle" placeholder="title">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="comment">Post Text:</label>
+        <textarea class="form-control" rows="5" id="postNewText"></textarea>
+    </div>
+</template>

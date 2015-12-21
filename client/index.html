@@ -1,0 +1,9 @@
+<template name="index">
+    {{>posts}}
+    {{#if currentUser}}
+        {{else}}
+        <div class="alert alert-success">
+            <strong>LOGIN OR REGISTER!</strong> In order to post.
+        </div>
+    {{/if}}
+</template>
