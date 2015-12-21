@@ -11,6 +11,8 @@ Template.posts.onCreated(function () {
 Template.posts.events({
     'click .editButton': function (e) {
         var postId = this._id;
+        //turn to inline mode
+        $.fn.editable.defaults.mode = 'inline';
         $("#" + postId).editable({
             display: function (value, response) {
                 return false;
